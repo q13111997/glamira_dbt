@@ -1,0 +1,23 @@
+
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+# dbt
+target/
+dbt_packages/
+logs/
+.dbt/
+
+# credentials
+profiles.yml
+*.json
+
+# python
+dbt-venv/
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
