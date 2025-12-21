@@ -31,6 +31,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   glamira:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+
+    staging:
+      +schema: staging_jaffle_shop
       +materialized: view
+
+    marts:
+      +schema: mart_jaffle_shop
+      +materialized: table
