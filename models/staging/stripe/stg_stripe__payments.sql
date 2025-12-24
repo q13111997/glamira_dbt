@@ -7,4 +7,4 @@ select
     -- amount is stored in cents, convert it to dollars
     amount / 100 as amount,
     created as created_at
-from project-480502.raw_jaffle_shop.payments
+from {{ source('jaffle_shop_stripe', 'payments') }}
