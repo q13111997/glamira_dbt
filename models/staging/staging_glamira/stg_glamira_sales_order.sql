@@ -1,18 +1,19 @@
 SELECT
-    order_key
-    ,customer_id
-    ,location_id
-    ,date_id
+    user_id_db
+    ,email_address
+    ,ip
+    ,CAST(FORMAT_DATE('%Y%m%d',DATE(TIMESTAMP_SECONDS(time_stamp))) AS INT64) AS date_id
     ,store_id
-    ,product_id
-    ,option_label
-    ,option_value
+    ,cp.product_id
+    ,opt.option_label
+    ,opt.value_label
     ,order_id
-    ,order_ts_utc
-    ,currency
-    ,unit_price
-    ,quantity
-    ,revenue
-FROM {{ source('glamira_raw', 'summary') }} SUMMARY
-LEFT JOIN
+    ,local_time AS order_ts_utc
+    ,cp.currency
+    ,CAST(cp.price AS NUMERIC) AS price
+    ,CAST(cp.amount AS NUMERIC) AS quantity
+    ,CAST(cp.price AS NUMERIC) * CAST(cp.amount AS NUMERIC) AS revenue
+FROM {{ source('glamira_raw', 'summary') }}
+CROSS JOIN UNNEST(cart_products) AS cp
+LEFT JOIN UNNEST(cp.option) AS opt
 WHERE collection = 'checkout_success'
