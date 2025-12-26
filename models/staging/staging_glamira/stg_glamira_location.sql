@@ -4,3 +4,7 @@ SELECT DISTINCT
     ,region AS region_name
     ,city AS city_name
 FROM {{ source('glamira_raw', 'ip_location') }}
+WHERE country_short <> '-'
+AND country_long <> '-'
+AND region <> '-'
+AND city <> '-'

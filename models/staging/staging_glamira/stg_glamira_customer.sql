@@ -1,5 +1,5 @@
 SELECT DISTINCT
-    store_id
-    ,'Store '||store_id AS store_name
+    user_id_db
+    ,LOWER(email_address) AS email_address
 FROM {{ source('glamira_raw', 'summary') }}
 WHERE collection = 'checkout_success'
