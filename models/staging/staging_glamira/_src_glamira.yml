@@ -1,0 +1,8 @@
+sources:
+  - name: glamira_raw
+    database: project-480502
+    schema: quannh_dataset
+    tables:
+      - name: summary
+      - name: ip_location
+      - name: products_info

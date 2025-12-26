@@ -31,11 +31,21 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   glamira:
-
     staging:
-      +schema: staging_jaffle_shop
       +materialized: view
+      jaffle_shop:
+        +schema: staging_jaffle_shop
+      stripe:
+        +schema: staging_jaffle_shop
+      stg_glamira:
+        +schema: staging_glamira
 
     marts:
-      +schema: mart_jaffle_shop
       +materialized: table
+      finance:
+        +schema: mart_jaffle_shop
+      marketing:
+        +schema: mart_jaffle_shop
+      mart_glamira:
+        +schema: mart_glamira
+
