@@ -3,7 +3,7 @@ WITH date_spine AS (
   FROM UNNEST(GENERATE_DATE_ARRAY('2010-01-01', '2035-12-31')) AS d
 )
 SELECT
-  CAST(FORMAT_DATE('%Y%m%d', full_date) AS INT64) AS date_key,
+  CAST(FORMAT_DATE('%Y%m%d', full_date) AS INT64) AS date_id,
   full_date,
   EXTRACT(DAYOFWEEK FROM full_date) AS day_of_week,
   EXTRACT(DAY FROM full_date) AS day_of_month,
