@@ -1,0 +1,17 @@
+models:
+  - name: stg_glamira_product
+    description: Staged products data from glamira dataset.
+    columns: 
+      - name: product_id
+        description: The primary key for product.
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_glamira_store
+    description: Staged stores data from glamira dataset.
+    columns: 
+      - name: store_id
+        description: The primary key for store.
+        data_tests:
+          - unique
+          - not_null

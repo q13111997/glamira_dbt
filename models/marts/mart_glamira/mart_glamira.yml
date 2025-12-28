@@ -1,0 +1,41 @@
+models:
+  - name: dim_date
+    description: Staged products data from glamira dataset.
+    columns: 
+      - name: date_id
+        description: The primary key for product.
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_location
+    description: Staged stores data from glamira dataset.
+    columns: 
+      - name: location_id
+        description: The primary key for store.
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_product
+    description: Staged stores data from glamira dataset.
+    columns: 
+      - name: product_id
+        description: The primary key for store.
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_customer
+    description: Staged stores data from glamira dataset.
+    columns: 
+      - name: customer_id
+        description: The primary key for store.
+        data_tests:
+          - unique
+          - not_null
+  - name: fact_sales_order
+    description: Staged stores data from glamira dataset.
+    columns: 
+      - name: order_key
+        description: The primary key for store.
+        data_tests:
+          - unique
+          - not_null
