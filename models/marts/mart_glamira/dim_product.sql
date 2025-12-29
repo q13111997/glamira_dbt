@@ -7,3 +7,4 @@ SELECT
     ,collection
     ,gender
 FROM {{ ref ('stg_glamira_product')}}
+WHERE product_id IS NOT NULL

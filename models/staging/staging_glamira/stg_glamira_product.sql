@@ -1,5 +1,5 @@
 SELECT
-    CAST(product_id AS INT64) AS product_id
+    SAFE_CAST(product_id AS INT64) AS product_id
     ,name AS product_name
     ,product_type
     ,category

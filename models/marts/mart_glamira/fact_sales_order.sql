@@ -1,11 +1,10 @@
 SELECT
-    CT.customer_id
+    FARM_FINGERPRINT(CONCAT(SO.order_id,'|',SO.product_id,'|',SO.price)) AS order_key
+    ,CT.customer_id
     ,FARM_FINGERPRINT(CONCAT(LO.country_name_short,'|',LO.region_name,'|',LO.city_name)) AS location_id
     ,SO.date_id
     ,SO.store_id
     ,SO.product_id
-    ,SO.option_label
-    ,SO.value_label
     ,SO.order_id
     ,SO.order_ts_utc
     ,SO.currency
