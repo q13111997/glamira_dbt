@@ -49,3 +49,4 @@ models:
       mart_glamira:
         +schema: mart_glamira
 
+        
