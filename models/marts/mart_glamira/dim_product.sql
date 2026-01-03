@@ -2,9 +2,8 @@ SELECT
     product_id
     ,product_name
     ,product_type
-    ,category
     ,category_name
-    ,collection
+    ,collection_name
     ,gender
 FROM {{ ref ('stg_glamira_product')}}
 WHERE product_id IS NOT NULL
