@@ -1,6 +1,7 @@
 # Glamira dbt Project
 
-Dự án này xây dựng **data warehouse** cho Glamira theo mô hình **Star Schema** bằng **dbt + BigQuery**. Mục tiêu: chuẩn hoá dữ liệu từ staging → marts, tạo các **dimension tables** và **fact table** để phục vụ BI / Analytics.
+Dự án này xây dựng **data warehouse** cho Glamira theo mô hình **Star Schema** bằng **dbt + BigQuery**. 
+Mục tiêu: chuẩn hoá dữ liệu từ staging → marts, tạo các **dimension tables** và **fact table** để phục vụ BI / Analytics.
 
 ---
 
@@ -53,7 +54,6 @@ glamira_dbt/
 * **staging/**:
 
   * Làm sạch dữ liệu từ source (rename column, cast type, clean data, chuẩn hoá format)
-  * Mỗi bảng source → 1 staging model
 
 * **marts/**:
 
@@ -65,7 +65,7 @@ glamira_dbt/
 
 * **seeds/**:
 
-  * Chứa dữ liệu static (ví dụ: `dim_fx_rate`)
+  * Chứa dữ liệu static (ví dụ: `dim_fx_rate` - bảng lưu tỷ giá quy đổi từ các loại ngoại tệ ra USD)
 
 ---
 
@@ -79,7 +79,7 @@ glamira_dbt/
 
 #### 🟦 Fact table
 
-* **fact_sales_order**: bảng  chứa dữ liệu giao dịch bán hàng
+* **fact_sales_order**: bảng lưu dữ liệu giao dịch bán hàng
 
 #### 🟩 Dimension tables
 
