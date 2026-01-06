@@ -1,6 +1,7 @@
 # Glamira dbt Project
 
 Dự án này xây dựng **data warehouse** cho Glamira theo mô hình **Star Schema** bằng **dbt + BigQuery**. 
+
 Mục tiêu: chuẩn hoá dữ liệu từ staging → marts, tạo các **dimension tables** và **fact table** để phục vụ BI / Analytics.
 
 ---
