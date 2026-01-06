@@ -3,5 +3,10 @@ SELECT DISTINCT
     ,user_id_db
     ,email_address
 FROM {{ ref ('stg_glamira_customer')}}
-WHERE user_id_db IS NOT NULL
-AND email_address IS NOT NULL
+
+UNION ALL
+
+SELECT
+    -1 customer_id
+    ,-1 user_id_db
+    ,'Unknown' email_address

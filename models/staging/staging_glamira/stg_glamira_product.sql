@@ -1,5 +1,9 @@
+WITH stg_product__source AS (
+    SELECT *
+    FROM {{ source('glamira_raw', 'products_info') }}
+)
 SELECT
-    SAFE_CAST(product_id AS INT64) AS product_id
+    CAST(product_id AS INT64) AS product_id
     ,COALESCE(name,'Unknown') AS product_name
     ,CASE 
         WHEN product_type IN ('-1','--_select_--') THEN 'Unknown'
@@ -14,4 +18,4 @@ SELECT
         WHEN collection = 'False' THEN 'Unknown'
         ELSE COALESCE(gender,'Unknown') 
     END AS gender
-FROM {{ source('glamira_raw', 'products_info') }}
+FROM stg_product__source

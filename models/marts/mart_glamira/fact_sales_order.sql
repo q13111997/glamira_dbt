@@ -1,11 +1,11 @@
 SELECT
-    FARM_FINGERPRINT(CONCAT(SO.order_id,'|',SO.product_id,'|',SO.unit_price)) AS order_key
-    ,CT.customer_id
-    ,FARM_FINGERPRINT(CONCAT(LO.country_name_short,'|',LO.region_name,'|',LO.city_name)) AS location_id
-    ,SO.date_id
-    ,SO.store_id
-    ,SO.product_id
-    ,SO.order_id
+    FARM_FINGERPRINT(CONCAT(SO.order_id,'|',SO.product_id)) AS order_key
+    ,COALESCE(CT.customer_id,-1) AS customer_id
+    ,COALESCE(LO.location_id,-1) AS location_id
+    ,COALESCE(SO.date_id,19000101) AS date_id
+    ,COALESCE(SO.store_id,-1) AS store_id
+    ,COALESCE(SO.product_id,-1) AS product_id
+    ,COALESCE(SO.order_id,-1) AS order_id
     ,SO.order_ts_utc
     ,SO.currency_code
     ,SO.unit_price
